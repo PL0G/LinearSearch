@@ -27,10 +27,20 @@ int search_last_index(T arr[], const int length, T value,int begin) {
 			return i;
 	return -1;
 }
-
+void subword(char word[], const int size, char sym) {
+	int index = search_index(word, size, sym);
+	if (index != -1) {
+		for (int i = index; i < size; i++)
+			std::cout << word[i];
+		std::cout << "\n";
+	}
+	else
+		std::cout << "ERROR";
+}
 int main() {
 	setlocale(LC_ALL, "Russian");
 	int n;
+	char sym;
 	//Линейный поиск элементов в массиве
 	/*
 	const int size = 10;
@@ -55,5 +65,14 @@ int main() {
 	else
 		std::cout << "Числа нет в массиве!\n";
 		*/
+	//Task 2
+	std::cout << "Задача 2.\n Слово:\n";
+	const int word_size = 8;
+	char word[word_size]{'f','u','n','c','t','i','o','n'};
+	for (int i = 0; i < word_size; i++)
+		std::cout << word[i];
+	std::cout << "\nВведите символ ->";
+	std::cin >> sym;
+	subword(word, word_size, sym);
 	return 0;
 }
